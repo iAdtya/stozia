@@ -1,10 +1,3 @@
-"""SQLAlchemy ORM models.
-
-Data model: an RFQ (request for quote) is one item the procurement user wants
-to buy, at a single quantity. Each RFQ has many SupplierQuotes — competing
-offers from different suppliers. The comparison is always done at the RFQ's
-quantity so every quote is apples-to-apples.
-"""
 from datetime import datetime
 
 from sqlalchemy import DateTime, ForeignKey, Integer, Numeric, String, Text, func

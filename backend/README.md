@@ -19,8 +19,11 @@ copy .env.example .env                # then paste your Supabase URL
 
 ## Seed the database
 
+CSV files live in the repo-root `data/` folder:
+`data/seed_quotes.csv` (the seed that gets loaded) and
+`data/sample_import_test.csv` (a small file for testing the import endpoint).
+
 ```powershell
-python make_seed.py     # regenerate seed_quotes.csv from ../seed.csv (optional)
 python seed.py --reset  # create tables + load the seed (25 RFQs, 50 quotes)
 ```
 

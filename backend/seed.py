@@ -1,11 +1,11 @@
-"""Load the cleaned seed CSV into the database.
+"""Load the seed CSV (data/seed_quotes.csv) into the database.
 
 Usage:
-    python make_seed.py     # (re)generate seed_quotes.csv from ../seed.csv
-    python seed.py          # create tables + import seed_quotes.csv
+    python seed.py           # create tables + import the seed
+    python seed.py --reset   # wipe the tables first, then import
 
-Safe to re-run: items are de-duplicated by MPN, so importing twice just adds
-duplicate supplier quotes — pass --reset to wipe the tables first.
+Safe to re-run, but without --reset items are de-duplicated by MPN while quotes
+are appended, so importing twice adds duplicate supplier quotes.
 """
 import os
 import sys
@@ -14,7 +14,7 @@ import csv_import
 from database import Base, SessionLocal, engine
 import models  # noqa: F401 - register tables on Base
 
-SEED_CSV = os.path.join(os.path.dirname(__file__), "seed_quotes.csv")
+SEED_CSV = os.path.join(os.path.dirname(__file__), "..", "data", "seed_quotes.csv")
 
 
 def main(reset: bool = False):
