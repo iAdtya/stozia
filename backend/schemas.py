@@ -29,7 +29,7 @@ def _blank_to_none(v):
         return None
     return v
 
-
+# IF MOQ is blank, means no minimum quantity and set it to 1
 def _blank_to_one(v):
     """A blank moq cell means 'no minimum', i.e. 1."""
     if v is None or (isinstance(v, str) and v.strip() == ""):
@@ -44,7 +44,7 @@ class RFQBase(BaseModel):
     item_name: str = Field(min_length=1)
     manufacturer_part_number: str = Field(min_length=1)
     description: str = Field(min_length=1)
-    quantity: int = Field(gt=0)
+    quantity: int = Field(gt=0) # greater than 0
     delivery_days: Optional[int] = Field(default=None, ge=0)
     notes: Optional[str] = None
 
