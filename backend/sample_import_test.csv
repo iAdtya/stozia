@@ -1,0 +1,6 @@
+item_name,manufacturer_part_number,description,quantity,moq,unit_price,currency,supplier_name,lead_time_days,payment_terms,remarks
+Voltage_Regulator_3.3V,AMS1117-3.3,LDO Regulator 3.3V SOT-223,100,1,$0.12,USD,Mouser,3,Net 60,In stock
+Voltage_Regulator_3.3V,AMS1117-3.3,LDO Regulator 3.3V SOT-223,100,500,$0.08,USD,LCSC,21,Net 30,Cheaper but min order 500
+Crystal_16MHz,X322516MSB4SI,Crystal 16MHz SMD 3225,50,1,$0.15,USD,DigiKey,5,Net 30,
+Crystal_16MHz,X322516MSB4SI,Crystal 16MHz SMD 3225,50,10,$0.09,USD,LCSC,21,Net 30,China
+Header_2x20_2.54,PZ254V-11-40P,Pin Header 2x20 2.54mm,20,5,$0.18,USD,XonElectronics,14,Net 30,

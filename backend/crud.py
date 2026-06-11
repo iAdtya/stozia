@@ -62,10 +62,12 @@ def delete_quote(db: Session, quote: models.SupplierQuote) -> None:
 # Comparison
 # --------------------------------------------------------------------------- #
 def build_comparison(rfq: models.RFQ) -> schemas.RFQComparison:
-    """Compute total_price for every quote and flag the cheapest one.
+    """Compute total_price for every quote and flag the cheapest eligible one.
 
-    Total Price = unit_price * RFQ quantity. The winner is the lowest total;
-    lead time breaks ties so the faster supplier wins an equal-price contest.
+    Total Price = unit_price * RFQ quantity. A quote is only eligible to win if
+    its MOQ <= the RFQ quantity (you can't order fewer than the supplier's
+    minimum). The winner is the lowest total among eligible quotes; lead time
+    breaks ties so the faster supplier wins an equal-price contest.
     """
     rows: list[schemas.QuoteComparison] = []
     for q in rfq.quotes:
@@ -77,20 +79,23 @@ def build_comparison(rfq: models.RFQ) -> schemas.RFQComparison:
                 currency=q.currency,
                 lead_time_days=q.lead_time_days,
                 payment_terms=q.payment_terms,
+                moq=q.moq,
                 remarks=q.remarks,
                 total_price=round(float(q.unit_price) * rfq.quantity, 4),
+                meets_moq=q.moq <= rfq.quantity,
                 is_best=False,
             )
         )
 
     best_id = None
-    if rows:
-        best = min(rows, key=lambda r: (r.total_price, r.lead_time_days))
+    eligible = [r for r in rows if r.meets_moq]
+    if eligible:
+        best = min(eligible, key=lambda r: (r.total_price, r.lead_time_days))
         best.is_best = True
         best_id = best.id
 
-    # Cheapest first so the table is pre-sorted for the frontend.
-    rows.sort(key=lambda r: r.total_price)
+    # Eligible cheapest first; MOQ-blocked quotes sink to the bottom.
+    rows.sort(key=lambda r: (not r.meets_moq, r.total_price))
 
     return schemas.RFQComparison(
         id=rfq.id,

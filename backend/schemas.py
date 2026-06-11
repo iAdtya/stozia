@@ -30,6 +30,13 @@ def _blank_to_none(v):
     return v
 
 
+def _blank_to_one(v):
+    """A blank moq cell means 'no minimum', i.e. 1."""
+    if v is None or (isinstance(v, str) and v.strip() == ""):
+        return 1
+    return v
+
+
 # --------------------------------------------------------------------------- #
 # RFQ
 # --------------------------------------------------------------------------- #
@@ -64,6 +71,7 @@ class QuoteBase(BaseModel):
     currency: str = Field(default="USD", pattern=r"^[A-Z]{3}$")
     lead_time_days: int = Field(ge=0)
     payment_terms: str = Field(pattern=r"^Net\s?\d+$")
+    moq: int = Field(default=1, ge=1)  # minimum order quantity
     remarks: Optional[str] = None
 
     _price = field_validator("unit_price", mode="before")(_strip_money)
@@ -90,8 +98,10 @@ class QuoteComparison(BaseModel):
     currency: str
     lead_time_days: int
     payment_terms: str
+    moq: int
     remarks: Optional[str] = None
     total_price: float  # unit_price * RFQ quantity
+    meets_moq: bool  # moq <= RFQ quantity (eligible to win)
     is_best: bool
 
 
@@ -114,9 +124,11 @@ class QuoteImportRow(BaseModel):
     supplier_name: str = Field(min_length=1)
     lead_time_days: int = Field(ge=0)
     payment_terms: str = Field(pattern=r"^Net\s?\d+$")
+    moq: int = Field(default=1, ge=1)  # optional column; defaults to 1 if absent
     remarks: Optional[str] = None
 
     _price = field_validator("unit_price", mode="before")(_strip_money)
+    _moq_blank = field_validator("moq", mode="before")(_blank_to_one)
     _remarks_blank = field_validator("remarks", mode="before")(_blank_to_none)
 
 

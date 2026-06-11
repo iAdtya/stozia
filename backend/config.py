@@ -1,16 +1,21 @@
-"""Application settings loaded from the .env file."""
+import os
 from pathlib import Path
 
-from pydantic_settings import BaseSettings, SettingsConfigDict
+from dotenv import load_dotenv
 
 # Anchor the .env to this file's folder so it loads no matter the working dir.
 ENV_FILE = Path(__file__).resolve().parent / ".env"
+load_dotenv(ENV_FILE)
 
 
-class Settings(BaseSettings):
-    DATABASE_URL: str
+class Settings:
+    DATABASE_URL: str = os.environ.get("DATABASE_URL", "")
 
-    model_config = SettingsConfigDict(env_file=ENV_FILE, extra="ignore")
+    def __init__(self):
+        if not self.DATABASE_URL:
+            raise RuntimeError(
+                f"DATABASE_URL is not set. Create {ENV_FILE} (see .env.example)."
+            )
 
 
 settings = Settings()

@@ -47,6 +47,9 @@ class SupplierQuote(Base):
     supplier_name: Mapped[str] = mapped_column(String(255), nullable=False)
     # Numeric (not float) so prices like 0.0048 keep exact precision.
     unit_price: Mapped[float] = mapped_column(Numeric(14, 4), nullable=False)
+    # Minimum order quantity the supplier requires. A quote can only win the
+    # comparison if its MOQ <= the RFQ quantity (you can't buy fewer than MOQ).
+    moq: Mapped[int] = mapped_column(Integer, nullable=False, default=1)
     currency: Mapped[str] = mapped_column(String(3), nullable=False, default="USD")
     lead_time_days: Mapped[int] = mapped_column(Integer, nullable=False)
     payment_terms: Mapped[str] = mapped_column(String(50), nullable=False)

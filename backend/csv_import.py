@@ -99,6 +99,7 @@ def import_quotes_csv(db: Session, raw: bytes) -> schemas.ImportResult:
                 currency=parsed.currency,
                 lead_time_days=parsed.lead_time_days,
                 payment_terms=parsed.payment_terms,
+                moq=parsed.moq,
                 remarks=parsed.remarks,
             )
         )
