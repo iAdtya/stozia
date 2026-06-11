@@ -1,15 +1,3 @@
-"""Pydantic v2 schemas — request validation, response shaping, CSV row rules.
-
-Validation decisions (and how they differ from the assignment's draft model):
-  * unit_price uses ge=0 (free samples / no-charge lines are legal) and a
-    pre-validator strips a leading "$" and thousands commas, because the CSV
-    stores prices like "$1.00".
-  * quantity is just gt=0. The draft used multiple_of=10, but real electronics
-    sell as qty 1 (modules), 5 (terminal blocks), reels of 5000, etc., so that
-    rule rejected ~44% of legitimate rows.
-  * currency must be a 3-letter uppercase code; payment_terms must look like
-    "Net 30".
-"""
 from datetime import datetime
 from typing import Optional
 
