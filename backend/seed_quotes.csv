@@ -1,0 +1,51 @@
+item_name,manufacturer_part_number,description,quantity,unit_price,currency,supplier_name,lead_time_days,payment_terms,remarks
+Battery_Holder_CR1220,CH291-1220LF,Battery Holder,100,1.00,USD,Newark (Multicomp),7,Net 30,UK stock
+Battery_Holder_CR1220,CH291-1220LF,Battery Holder,100,1.20,USD,Farnell (Multicomp),14,Net 30,GBP→USD
+Capacitor_10uF_25V,CL21A106KAYNNNE,MLCC 10µF 25V X5R,100,0.072,USD,Mouser,3,Net 30,
+Capacitor_10uF_25V,CL21A106KAYNNNE,MLCC 10µF 25V X5R,100,0.0477,USD,LCSC,21,Net 30,China supplier
+Capacitor_0.1uF_50V,TCC0603X7R104K101CT,MLCC 0.1µF 50V X7R,100,0.100,USD,DigiKey,5,Net 30,Kyocera AVX
+Capacitor_0.1uF_50V,TCC0603X7R104K101CT,MLCC 0.1µF 50V X7R,100,0.0048,USD,LCSC,21,Net 30,China brand
+Capacitor_0.1uF_X2,MP2104K27C3X6LC,Film Cap 0.1µF 275VAC,10,0.38,USD,Mouser (Würth),3,Net 30,
+Capacitor_0.1uF_X2,MP2104K27C3X6LC,Film Cap 0.1µF 275VAC,10,0.47,USD,Farnell (KOA),14,Net 30,GBP→USD
+Capacitor_220uF_25V,RVT220UF25V67RV0093,Alum Elec Cap 220µF 25V,100,0.49,USD,DigiKey (Nichicon),2,Net 30,
+Capacitor_220uF_25V,RVT220UF25V67RV0093,Alum Elec Cap 220µF 25V,100,0.1356,USD,XonElectronics,30,Net 30,Chinese brand (KNSCHA)
+LED_Red_3mm,XL-302SURD,LED Red 3mm Diffuse,1000,0.034,USD,DigiKey (Xinglight),5,Net 30,
+LED_Red_3mm,XL-302SURD,LED Red 3mm Diffuse,1000,0.0267,USD,LCSC,21,Net 30,China
+Diode_Schottky_30V,B5819W,Schottky Diode SOD-123,200,0.23,USD,DigiKey (Good-Ark),2,Net 30,
+Diode_Schottky_30V,B5819W,Schottky Diode SOD-123,200,0.0225,USD,LCSC,21,Net 30,China
+Diode_Signal_100V,1N4148W,Signal Diode SOD-523,200,0.0625,USD,DigiKey (Diodes Inc),2,Net 30,
+Diode_Signal_100V,1N4148W,Signal Diode SOD-523,200,0.0194,USD,LCSC,21,Net 30,China
+LED_Green_3mm,XL-302UGD,LED Green 3mm Diffuse,1000,0.037,USD,DigiKey (Xinglight),5,Net 30,
+LED_Green_3mm,XL-302UGD,LED Green 3mm Diffuse,1000,0.0283,USD,LCSC,21,Net 30,China
+LED_Red_0603,D-060306B1/SS2/B1,LED Red 0603,100,0.14,USD,DigiKey (ams-OSRAM),2,Net 30,
+LED_Red_0603,D-060306B1/SS2/B1,LED Red 0603,100,0.007,USD,LCSC,21,Net 30,China
+Fuse_500mA_250V,2009T500mA250V,Plug Fuse 500mA,100,0.0471,USD,LCSC (Hongda),14,Net 30,
+Fuse_500mA_250V,2009T500mA250V,Plug Fuse 500mA,100,0.08,USD,Assumed_Supplier,30,Net 30,Assumption
+OLED_Display_0.96in,HS96L03W2C03,OLED 128x64 I2C,1,2.24,USD,LCSC (Hantronix),7,Net 30,
+OLED_Display_0.96in,HS96L03W2C03,OLED 128x64 I2C,1,2.27,USD,Assumed_JLC,14,Net 30,Assumption
+TermBlock_4P_5.08mm,DB128V-5.08-4P-GN-S,Terminal Block 4-pin,5,0.4182,USD,LCSC,7,Net 30,
+TermBlock_4P_5.08mm,DB128V-5.08-4P-GN-S,Terminal Block 4-pin,5,0.6634,USD,XonElectronics,21,Net 30,
+USB-C_Connector,KH-TYPE-C-16P,USB Type-C Receptacle,5,0.1358,USD,XonElectronics,21,Net 30,
+USB-C_Connector,KH-TYPE-C-16P,USB Type-C Receptacle,5,0.0764,USD,Assumed_Manufacturer,14,Net 30,Assumption
+Relay_5V,SRD-05VDC-SL-C,PCB Relay SPDT 5V,1,1.35,USD,SwitchElectronics,30,Net 30,Songle
+Relay_5V,SRD-05VDC-SL-C,PCB Relay SPDT 5V,1,0.4876,USD,LCSC,14,Net 30,Songle
+Buzzer_Magnetic,MLT-8530,Piezo Buzzer 12V,1,0.80,USD,Assumed_Local,7,Net 30,Assumption
+Buzzer_Magnetic,MLT-8530,Piezo Buzzer 12V,1,0.50,USD,Assumed_China,30,Net 30,Assumption
+ACDC_5V5W,HLK-5M05,Module AC/DC 5V 5W,1,1.48,USD,HLK (Manufacturer),7,Net 30,
+ACDC_5V5W,HLK-5M05,Module AC/DC 5V 5W,1,2.384,USD,LCSC (HLK),14,Net 30,
+MOSFET_N,AO3400A,N-Channel MOSFET 30V,5,0.21,USD,Reichelt,3,Net 30,
+MOSFET_N,AO3400A,N-Channel MOSFET 30V,5,0.0846,USD,LCSC (AOS),21,Net 30,
+Resistor_0R_0603,RC0603JR-070RL,Jumper Resistor 0603 0Ω,100,0.100,USD,Mouser,3,Net 30,
+Resistor_0R_0603,RC0603JR-070RL,Jumper Resistor 0603 0Ω,100,0.005,USD,Farnell,7,Net 30,
+Resistor_10k_0603,RC0603FR-0710KL,Resistor 10kΩ 0603 1%,100,0.10,USD,Mouser,3,Net 30,
+Resistor_10k_0603,RC0603FR-0710KL,Resistor 10kΩ 0603 1%,100,0.0015,USD,LCSC,21,Net 30,
+Resistor_4k7_0603,RC0603FR-074K7L,Resistor 4.7kΩ 0603 1%,100,0.10,USD,Mouser,3,Net 30,
+Resistor_4k7_0603,RC0603FR-074K7L,Resistor 4.7kΩ 0603 1%,100,0.0018,USD,LCSC,21,Net 30,
+Resistor_1M_1/4W,MF1/4W-1M,Resistor 1MΩ 1/4W 5%,100,0.10,USD,Farnell (KOA),14,Net 30,
+Resistor_1M_1/4W,MF1/4W-1M,Resistor 1MΩ 1/4W 5%,100,0.0081,USD,LCSC,21,Net 30,
+Resistor_5k1_0603,RC0603FR-075K1L,Resistor 5.1kΩ 0603 1%,100,0.10,USD,Newark,3,Net 30,
+Resistor_5k1_0603,RC0603FR-075K1L,Resistor 5.1kΩ 0603 1%,100,0.002,USD,LCSC,21,Net 30,
+Resistor_470_0603,RC0603FR-07470RL,Resistor 470Ω 0603 1%,5000,0.12,USD,Mouser,3,Net 30,
+Resistor_470_0603,RC0603FR-07470RL,Resistor 470Ω 0603 1%,5000,0.005,USD,Newark,14,Net 30,
+Resistor_1k_0603,RC0603FR-071KL,Resistor 1kΩ 0603 1%,100,0.10,USD,Mouser,3,Net 30,
+Resistor_1k_0603,RC0603FR-071KL,Resistor 1kΩ 0603 1%,100,0.0016,USD,LCSC,21,Net 30,
