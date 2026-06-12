@@ -1,15 +1,3 @@
-"""CSV parsing and validation for the supplier-quote import feature.
-
-Expected header (case-insensitive, order-independent):
-    item_name, manufacturer_part_number, description, quantity, unit_price,
-    currency, supplier_name, lead_time_days, payment_terms, remarks
-
-Each row is one supplier quote for an item. Items are de-duplicated by
-manufacturer_part_number: the first row for a given MPN creates the RFQ (and
-sets its quantity); later rows with the same MPN just attach another quote.
-Invalid rows are skipped and reported with their row number — one bad row never
-blocks the rest of the file.
-"""
 import csv
 import io
 

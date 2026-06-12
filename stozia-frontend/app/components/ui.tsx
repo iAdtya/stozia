@@ -1,4 +1,3 @@
-// Minimal shared UI primitives. Plain Tailwind, nothing flashy.
 import Link from "next/link";
 
 export function Button({

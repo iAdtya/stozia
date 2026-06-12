@@ -1,8 +1,3 @@
-"""Stozia — Supplier Quote Comparison Tool (backend API).
-
-Run with:  uvicorn main:app --reload
-Interactive docs at http://localhost:8000/docs
-"""
 from contextlib import asynccontextmanager
 
 from fastapi import Depends, FastAPI, File, HTTPException, UploadFile
