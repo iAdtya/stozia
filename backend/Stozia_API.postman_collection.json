@@ -1,0 +1,248 @@
+{
+	"info": {
+		"_postman_id": "stozia-api-collection",
+		"name": "Stozia Supplier Quote Comparison API",
+		"description": "API collection for the Stozia backend.",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
+	},
+	"item": [
+		{
+			"name": "Health Checks",
+			"item": [
+				{
+					"name": "Root Status",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{base_url}}/",
+							"host": [
+								"{{base_url}}"
+							],
+							"path": [
+								""
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Database Status",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{base_url}}/health/db",
+							"host": [
+								"{{base_url}}"
+							],
+							"path": [
+								"health",
+								"db"
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "RFQs",
+			"item": [
+				{
+					"name": "Create RFQ",
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "Content-Type",
+								"value": "application/json"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"item_name\": \"Microcontroller\",\r\n    \"manufacturer_part_number\": \"ESP32-WROOM-32E\",\r\n    \"description\": \"Wi-Fi/Bluetooth Module\",\r\n    \"quantity\": 500,\r\n    \"delivery_days\": 14,\r\n    \"notes\": \"Need these fast\"\r\n}"
+						},
+						"url": {
+							"raw": "{{base_url}}/rfqs",
+							"host": [
+								"{{base_url}}"
+							],
+							"path": [
+								"rfqs"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "List All RFQs",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{base_url}}/rfqs",
+							"host": [
+								"{{base_url}}"
+							],
+							"path": [
+								"rfqs"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Get RFQ Comparison (Compute Winner)",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{base_url}}/rfqs/1",
+							"host": [
+								"{{base_url}}"
+							],
+							"path": [
+								"rfqs",
+								"1"
+							]
+						},
+						"description": "Change '1' to the ID of the RFQ you want to view."
+					},
+					"response": []
+				},
+				{
+					"name": "Delete RFQ",
+					"request": {
+						"method": "DELETE",
+						"header": [],
+						"url": {
+							"raw": "{{base_url}}/rfqs/1",
+							"host": [
+								"{{base_url}}"
+							],
+							"path": [
+								"rfqs",
+								"1"
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "Quotes",
+			"item": [
+				{
+					"name": "Add Quote to RFQ",
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "Content-Type",
+								"value": "application/json"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"supplier_name\": \"DigiKey\",\r\n    \"unit_price\": 2.45,\r\n    \"currency\": \"USD\",\r\n    \"lead_time_days\": 3,\r\n    \"payment_terms\": \"Net 30\",\r\n    \"moq\": 100,\r\n    \"remarks\": \"In stock\"\r\n}"
+						},
+						"url": {
+							"raw": "{{base_url}}/rfqs/1/quotes",
+							"host": [
+								"{{base_url}}"
+							],
+							"path": [
+								"rfqs",
+								"1",
+								"quotes"
+							]
+						},
+						"description": "Make sure to change the '1' in the URL to the ID of the RFQ you just created."
+					},
+					"response": []
+				},
+				{
+					"name": "Delete Quote",
+					"request": {
+						"method": "DELETE",
+						"header": [],
+						"url": {
+							"raw": "{{base_url}}/quotes/1",
+							"host": [
+								"{{base_url}}"
+							],
+							"path": [
+								"quotes",
+								"1"
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "CSV Import",
+			"item": [
+				{
+					"name": "Upload CSV Quotes",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "formdata",
+							"formdata": [
+								{
+									"key": "file",
+									"type": "file",
+									"src": []
+								}
+							]
+						},
+						"url": {
+							"raw": "{{base_url}}/import/quotes",
+							"host": [
+								"{{base_url}}"
+							],
+							"path": [
+								"import",
+								"quotes"
+							]
+						},
+						"description": "To test this in Postman, go to the Body tab, make sure 'form-data' is selected, and choose a .csv file for the 'file' key."
+					},
+					"response": []
+				}
+			]
+		}
+	],
+	"event": [
+		{
+			"listen": "prerequest",
+			"script": {
+				"type": "text/javascript",
+				"exec": [
+					""
+				]
+			}
+		},
+		{
+			"listen": "test",
+			"script": {
+				"type": "text/javascript",
+				"exec": [
+					""
+				]
+			}
+		}
+	],
+	"variable": [
+		{
+			"key": "base_url",
+			"value": "http://localhost:8000",
+			"type": "string"
+		}
+	]
+}
